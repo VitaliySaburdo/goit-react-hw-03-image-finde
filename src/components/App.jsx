@@ -6,8 +6,8 @@ export class App extends Component{
   query: '',
 }
 
-  formSubmitHendler = ({ query}) => {
-    this.setState({ query: query });
+  formSubmitHendler = ({ value}) => {
+    this.setState({ query: value });
     
   };
 
