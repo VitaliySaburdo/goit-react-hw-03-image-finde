@@ -1,21 +1,21 @@
-export const App = () => {
-  // state = {
-  //   id: '',
-  //   webformatURL: '',
-  //   largeImageURL: ''
-  // }
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+import { Component } from 'react';
+import { Searchbar } from "./Searchbar/Searchbar";
+
+export class App extends Component{
+  state = {
+  query: '',
+}
+
+  formSubmitHendler = ({ query}) => {
+    this.setState({ query: query });
+    
+  };
+
+  render() {
+    return (
+      <div>
+        <Searchbar onSubmit={this.formSubmitHendler}/>
+      </div>
+    )
+}
 };

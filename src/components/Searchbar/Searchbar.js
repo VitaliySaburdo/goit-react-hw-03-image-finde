@@ -1,30 +1,39 @@
+import { Component } from 'react';
+
 export class Searchbar extends Component {
   state = {
-    name: '',
+    query: '',
   };
 
-  //   handleNameChange = e => {
-  //     const { name, value } = e.currentTarget;
-  //     this.setState({ [name]: value });
-  //   };
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.query.trim() === '') {
+      return alert('Please, enter image name.');
+    }
+    this.props.onSubmit(this.state);
+    this.resetForm();
+  };
 
-  //   resetForm = () => {
-  //     this.setState({ name: '', number: '' });
-  //   };
+  handleQueryChange = e => {
+    this.setState({ query: e.currentTarget.value.toLowerCase() });
+  };
+
+  resetForm = () => {
+    this.setState({ query: '' });
+  };
 
   render() {
     return (
-      <header class="searchbar">
-        <form class="form">
-          <button type="submit" class="button">
-            <span class="button-label">Search</span>
+      <header>
+        <form onSubmit={this.handleSubmit}>
+          <button type="submit">
+            <span>Search</span>
           </button>
 
           <input
-            class="input"
+            onChange={this.handleQueryChange}
+            value={this.state.query}
             type="text"
-            autocomplete="off"
-            autofocus
             placeholder="Search images and photos"
           />
         </form>
