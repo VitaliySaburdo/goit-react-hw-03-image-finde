@@ -1,4 +1,9 @@
 export const App = () => {
+  // state = {
+  //   id: '',
+  //   webformatURL: '',
+  //   largeImageURL: ''
+  // }
   return (
     <div
       style={{
