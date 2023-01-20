@@ -1,11 +1,11 @@
-export const ImageGallery = ({ contacts, onDelete }) => {
-  return (
-    <ul>
-      {contacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name}: {contact.number}
-        </li>
-      ))}
-    </ul>
-  );
-};
+import { Component } from 'react';
+
+export default class ImageGallery extends Component {
+  render() {
+    return (
+      <ul className="gallery-item">
+        <li>{this.props.query}</li>
+      </ul>
+    );
+  }
+}
