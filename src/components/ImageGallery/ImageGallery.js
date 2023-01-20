@@ -1,11 +1,7 @@
-import { Component } from 'react';
-
-export default class ImageGallery extends Component {
-  render() {
-    return (
-      <ul className="gallery-item">
-        <li>{this.props.query}</li>
-      </ul>
-    );
-  }
-}
+export const ImageGallery = () => {
+  return (
+    <ul className="gallery-item">
+      <ImageGallery query={this.props.query} />
+    </ul>
+  );
+};

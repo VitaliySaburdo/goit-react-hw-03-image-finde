@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
   state = {
-    value: '',
+    query: '',
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.value.trim() === '') {
+    if (this.state.query.trim() === '') {
       return toast.warn('Please, enter image name.');
     }
     this.props.onSubmit(this.state);
@@ -17,11 +17,11 @@ export class Searchbar extends Component {
   };
 
   handleQueryChange = e => {
-    this.setState({ value: e.currentTarget.value.toLowerCase() });
+    this.setState({ query: e.currentTarget.value.toLowerCase() });
   };
 
   resetForm = () => {
-    this.setState({ value: '' });
+    this.setState({ query: '' });
   };
 
   render() {
@@ -35,7 +35,7 @@ export class Searchbar extends Component {
           <input
             className={css.SearchForm_input}
             onChange={this.handleQueryChange}
-            value={this.state.value}
+            value={this.state.query}
             type="text"
             placeholder="Search images and photos"
             autoComplete="off"

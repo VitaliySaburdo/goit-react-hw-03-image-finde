@@ -1,7 +1,7 @@
-export const ImageGalleryItem = ({ friend: { isOnline, avatar, name } }) => {
+export const ImageGalleryItem = () => {
   return (
-    <li>
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
+    <li class="gallery-item">
+      <img src="" alt="" />
     </li>
   );
 };
