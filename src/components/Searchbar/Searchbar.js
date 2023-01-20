@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import css from './Searchbar.module.css';
+import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
   state = {
@@ -9,7 +10,7 @@ export class Searchbar extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.value.trim() === '') {
-      return alert('Please, enter image name.');
+      return toast.warn('Please, enter image name.');
     }
     this.props.onSubmit(this.state);
     this.resetForm();
