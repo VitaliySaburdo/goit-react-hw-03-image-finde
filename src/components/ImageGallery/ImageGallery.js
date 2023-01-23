@@ -1,4 +1,5 @@
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
+import PropTypes from 'prop-types';
 import css from './ImageGalery.module.css';
 
 export const ImageGallery = ({ cards, onSelect }) => {
@@ -17,4 +18,9 @@ export const ImageGallery = ({ cards, onSelect }) => {
       </ul>
     </div>
   );
+};
+
+ImageGallery.propTypes = {
+  cards: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };

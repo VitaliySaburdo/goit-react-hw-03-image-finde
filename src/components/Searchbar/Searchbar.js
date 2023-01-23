@@ -1,10 +1,15 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './Searchbar.module.css';
 import { toast } from 'react-toastify';
 
 export class Searchbar extends Component {
   state = {
     query: '',
+  };
+
+  static propTypes = {
+    query: PropTypes.string,
   };
 
   handleSubmit = e => {

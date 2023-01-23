@@ -34,6 +34,7 @@ export class App extends Component {
 
   async componentDidUpdate(_, prevState) {
     const { page, query } = this.state;
+
     if (prevState.page !== page || prevState.query !== query) {
       try {
         this.setState({
@@ -54,6 +55,10 @@ export class App extends Component {
         this.setState({
           isLoading: false,
         });
+       window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
       }
     }
   }
