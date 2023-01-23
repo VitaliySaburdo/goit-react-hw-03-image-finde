@@ -55,10 +55,10 @@ export class App extends Component {
         this.setState({
           isLoading: false,
         });
-       window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
       }
     }
   }
@@ -68,9 +68,7 @@ export class App extends Component {
   };
 
   onClickImage = (url, name) => {
-    this.setState({ largeImageUrl: url });
-    this.setState({ name: name });
-    this.setState({ showModal: true });
+    this.setState({ largeImageUrl: url, name: name, showModal: true });
   };
 
   LoadMore = () => {
@@ -85,18 +83,16 @@ export class App extends Component {
     const { items, showLoadButton, largeImageUrl, showModal, isLoading, name } =
       this.state;
     return (
-      <div>
+      <>
         <Searchbar onSubmit={this.formSubmitHendler} />
         <ToastContainer />
-
         <ImageGallery cards={items} onSelect={this.onClickImage} />
-
         {isLoading && <Loader />}
         {showModal && (
           <Modal url={largeImageUrl} name={name} onClose={this.toggleModal} />
         )}
         {showLoadButton && <LoadButton LoadMore={() => this.LoadMore()} />}
-      </div>
+      </>
     );
   }
 }
