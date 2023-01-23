@@ -8,14 +8,11 @@ export const ApiService = async (query, page) => {
     q: query,
     image_type: 'photo',
     orientation: 'horizontal',
-    page: page,
+    page,
     per_page: 12,
   });
   const url = `${BASE_URL}?${searchParams}`;
   const response = await axios.get(url);
-  try {
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
+
+  return response.data.hits;
 };
