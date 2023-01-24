@@ -14,5 +14,5 @@ export const ApiService = async (query, page) => {
   const url = `${BASE_URL}?${searchParams}`;
   const response = await axios.get(url);
 
-  return response.data.hits;
+  return response.data;
 };

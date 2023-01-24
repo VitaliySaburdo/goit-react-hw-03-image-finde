@@ -40,14 +40,20 @@ export class App extends Component {
         this.setState({
           isLoading: true,
         });
-        const cards = await ApiService(query, page);
-        if (cards.length) {
+        
+        const { hits, totalHits } = await ApiService(query, page);
+        if (hits.length) {
           this.setState(prevState => ({
-            items: [...prevState.items, ...cards],
+            items: [...prevState.items, ...hits],
             showLoadButton: true,
           }));
         } else {
           toast.warn(`Images ${query} is not found`);
+        }
+        if (prevState.page < Math.ceil(totalHits / 12)) {
+          this.setState({showLoadButton: true})
+        } else {
+          this.setState({showLoadButton: false})
         }
       } catch (error) {
         console.log(error);
