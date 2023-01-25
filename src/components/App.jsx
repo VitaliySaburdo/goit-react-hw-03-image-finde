@@ -45,15 +45,10 @@ export class App extends Component {
         if (hits.length) {
           this.setState(prevState => ({
             items: [...prevState.items, ...hits],
-            showLoadButton: true,
+            showLoadButton: page < Math.ceil(totalHits / 12),
           }));
         } else {
           toast.warn(`Images ${query} is not found`);
-        }
-        if (prevState.page < Math.ceil(totalHits / 12)) {
-          this.setState({showLoadButton: true})
-        } else {
-          this.setState({showLoadButton: false})
         }
       } catch (error) {
         console.log(error);
