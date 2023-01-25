@@ -42,7 +42,8 @@ export class App extends Component {
         });
         
         const { hits, totalHits } = await ApiService(query, page);
-        if (hits.length !== null) {
+        console.log(hits)
+        if (hits.length !== 0) {
           this.setState(prevState => ({
             items: [...prevState.items, ...hits],
             showLoadButton: page < Math.ceil(totalHits / 12),
