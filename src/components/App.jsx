@@ -40,9 +40,8 @@ export class App extends Component {
         this.setState({
           isLoading: true,
         });
-        
         const { hits, totalHits } = await ApiService(query, page);
-        console.log(hits)
+    
         if (hits.length !== 0) {
           this.setState(prevState => ({
             items: [...prevState.items, ...hits],
